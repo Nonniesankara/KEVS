@@ -12,6 +12,12 @@ class County(db.Model):
 
     constituencies = db.relationship('Constituency', back_populates='county')
 
+    def to_dict(self):
+        return {
+            "id":self.id,
+            "name":self.name
+        }
+
 class Constituency(db.Model):
     __tablename__ = 'constituencies'
     id = db.Column(db.Integer, primary_key=True)
@@ -20,6 +26,13 @@ class Constituency(db.Model):
 
     county = db.relationship('County', back_populates='constituencies')
     wards = db.relationship('Ward', back_populates='constituency')
+    
+    def to_dict(self):
+        return{
+            "id":self.id,
+            "name":self.name,
+            "county_id":self.county_id
+        }
 
 class Ward(db.Model):
     __tablename__ = 'wards'
@@ -29,6 +42,13 @@ class Ward(db.Model):
 
     constituency = db.relationship('Constituency', back_populates='wards')
     polling_stations = db.relationship('PollingStation', back_populates='ward')
+   
+    def to_dict(self):
+        return{
+            "id":self.id,
+            "name":self.name,
+            "constituency_id":self.constituency_id
+        }
 
 class PollingStation(db.Model):
     __tablename__ = 'polling_stations'
@@ -38,6 +58,13 @@ class PollingStation(db.Model):
 
     ward = db.relationship('Ward', back_populates='polling_stations')
     voters = db.relationship('Voter', back_populates='polling_station')
+
+    def to_dict(self):
+        return{
+            "id":self.id,
+            "name":self.name,
+            "ward_id":self.ward_id
+        }
 
 # ---------------- User and Voting Tables ----------------
 
@@ -61,6 +88,15 @@ class Candidate(db.Model):
 
     votes = db.relationship('Vote', back_populates='candidate')
 
+    def to_dict(self):
+        return {
+        "id": self.id,
+        "name": self.name,
+        "party": self.party,
+        "position": self.position,
+        "ward_id": self.ward_id
+    }
+
 class Vote(db.Model):
     __tablename__ = 'votes'
     id = db.Column(db.Integer, primary_key=True)
@@ -70,3 +106,11 @@ class Vote(db.Model):
 
     voter = db.relationship('Voter', back_populates='votes')
     candidate = db.relationship('Candidate', back_populates='votes')
+
+    def to_dict(self):
+        return {
+            "id":self.id,
+            "voter_id":self.voter_id,
+            "candidate_id":self.candidate_id,
+            "timestamp":self.timestamp
+        }
