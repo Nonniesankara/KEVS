@@ -52,6 +52,13 @@ def get_wards():
     return jsonify([ward.to_dict() for ward in wards])
 
 #--------------------------------------------------------------
+# route for changing the status of a vote
+@app.route('/votes/<int:id>/spoil', methods=['PATCH'])
+def spoil_vote(id):
+    vote = Vote.query.get_or_404(id)
+    vote.spoilt = True
+    db.session.commit()
+    return jsonify(vote.to_dict()), 200
 
 #route for getting a candidate by their id (Read)
 

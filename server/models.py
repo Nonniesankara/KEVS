@@ -103,6 +103,7 @@ class Vote(db.Model):
     voter_id = db.Column(db.Integer, db.ForeignKey('voters.id'))
     candidate_id = db.Column(db.Integer, db.ForeignKey('candidates.id'))
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
+    spoilt = db.Column(db.Boolean, default=False, nullable=False)
 
     voter = db.relationship('Voter', back_populates='votes')
     candidate = db.relationship('Candidate', back_populates='votes')
@@ -112,5 +113,6 @@ class Vote(db.Model):
             "id":self.id,
             "voter_id":self.voter_id,
             "candidate_id":self.candidate_id,
-            "timestamp":self.timestamp
+            "timestamp":self.timestamp,
+            "spoilt": self.spoilt 
         }
