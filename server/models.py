@@ -1,75 +1,72 @@
-from sqlalchemy import Boolean, Column, DateTime, ForeignKey, Integer, String
-from sqlalchemy.orm import relationship, declarative_base
+from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
-from sqlalchemy import Column, Integer, String, Boolean, ForeignKey, DateTime
 
-
-Base = declarative_base()
+db = SQLAlchemy()
 
 # ---------------- Location Tables ----------------
 
-class County(Base):
+class County(db.Model):
     __tablename__ = 'counties'
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
 
-    constituencies = relationship('Constituency', back_populates='county')
+    constituencies = db.relationship('Constituency', back_populates='county')
 
-class Constituency(Base):
+class Constituency(db.Model):
     __tablename__ = 'constituencies'
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    county_id = Column(Integer, ForeignKey('counties.id'))
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    county_id = db.Column(db.Integer, db.ForeignKey('counties.id'))
 
-    county = relationship('County', back_populates='constituencies')
-    wards = relationship('Ward', back_populates='constituency')
+    county = db.relationship('County', back_populates='constituencies')
+    wards = db.relationship('Ward', back_populates='constituency')
 
-class Ward(Base):
+class Ward(db.Model):
     __tablename__ = 'wards'
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    constituency_id = Column(Integer, ForeignKey('constituencies.id'))
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    constituency_id = db.Column(db.Integer, db.ForeignKey('constituencies.id'))
 
-    constituency = relationship('Constituency', back_populates='wards')
-    polling_stations = relationship('PollingStation', back_populates='ward')
+    constituency = db.relationship('Constituency', back_populates='wards')
+    polling_stations = db.relationship('PollingStation', back_populates='ward')
 
-class PollingStation(Base):
+class PollingStation(db.Model):
     __tablename__ = 'polling_stations'
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    ward_id = Column(Integer, ForeignKey('wards.id'))
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    ward_id = db.Column(db.Integer, db.ForeignKey('wards.id'))
 
-    ward = relationship('Ward', back_populates='polling_stations')
-    voters = relationship('Voter', back_populates='polling_station')
+    ward = db.relationship('Ward', back_populates='polling_stations')
+    voters = db.relationship('Voter', back_populates='polling_station')
 
 # ---------------- User and Voting Tables ----------------
 
-class Voter(Base):
+class Voter(db.Model):
     __tablename__ = 'voters'
-    id = Column(Integer, primary_key=True)
-    username = Column(String, unique=True)
-    polling_station_id = Column(Integer, ForeignKey('polling_stations.id'))
-    has_voted = Column(Boolean, default=False)
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String, unique=True)
+    polling_station_id = db.Column(db.Integer, db.ForeignKey('polling_stations.id'))
+    has_voted = db.Column(db.Boolean, default=False)
 
-    polling_station = relationship('PollingStation', back_populates='voters')
-    votes = relationship('Vote', back_populates='voter')
+    polling_station = db.relationship('PollingStation', back_populates='voters')
+    votes = db.relationship('Vote', back_populates='voter')
 
-class Candidate(Base):
+class Candidate(db.Model):
     __tablename__ = 'candidates'
-    id = Column(Integer, primary_key=True)
-    name = Column(String)
-    party = Column(String)
-    position = Column(String)
-    ward_id = Column(Integer, ForeignKey('wards.id'), nullable=True)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String)
+    party = db.Column(db.String)
+    position = db.Column(db.String)
+    ward_id = db.Column(db.Integer, db.ForeignKey('wards.id'), nullable=True)
 
-    votes = relationship('Vote', back_populates='candidate')
+    votes = db.relationship('Vote', back_populates='candidate')
 
-class Vote(Base):
+class Vote(db.Model):
     __tablename__ = 'votes'
-    id = Column(Integer, primary_key=True)
-    voter_id = Column(Integer, ForeignKey('voters.id'))
-    candidate_id = Column(Integer, ForeignKey('candidates.id'))
-    timestamp = Column(DateTime, default=datetime.utcnow)
+    id = db.Column(db.Integer, primary_key=True)
+    voter_id = db.Column(db.Integer, db.ForeignKey('voters.id'))
+    candidate_id = db.Column(db.Integer, db.ForeignKey('candidates.id'))
+    timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
-    voter = relationship('Voter', back_populates='votes')
-    candidate = relationship('Candidate', back_populates='votes')
+    voter = db.relationship('Voter', back_populates='votes')
+    candidate = db.relationship('Candidate', back_populates='votes')
