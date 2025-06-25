@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from flask import Flask, make_response, jsonify
+from flask import Flask, make_response, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from models import db  
@@ -60,14 +60,58 @@ def spoil_vote(id):
     db.session.commit()
     return jsonify(vote.to_dict()), 200
 
-#route for getting a candidate by their id (Read)
+#route for voting
+@app.route('/vote', methods=['POST'])
+def submit_vote():
+    data = request.get_json()
 
-# route for creating a voter (create)
+    voter_id = data.get('voter_id')
+    candidate_id = data.get('candidate_id')
 
-#route for changing the value of the spoilt column in vote to be spoilt (PATCH)  
+    if not voter_id or not candidate_id:
+        return jsonify({"error": "voter_id and candidate_id are required"}), 400
 
+    voter = Voter.query.get(voter_id)
+    if not voter:
+        return jsonify({"error": "Voter not found"}), 404
+    if voter.has_voted:
+        return jsonify({"error": "Voter has already voted"}), 403
+
+    candidate = Candidate.query.get(candidate_id)
+    if not candidate:
+        return jsonify({"error": "Candidate not found"}), 404
+
+    vote = Vote(voter_id=voter_id, candidate_id=candidate_id, spoilt=False)
+    voter.has_voted = True 
+
+    db.session.add(vote)
+    db.session.commit()
+
+    return jsonify(vote.to_dict()), 201
 
 #route for counting votes to be displayed on by indivitual candidates.
+from flask import jsonify
+from sqlalchemy import func
+
+@app.route('/votes/count', methods=['GET'])
+def count_votes():
+    results = db.session.query(
+        Candidate.id,
+        Candidate.name,
+        func.count(Vote.id).label('vote_count')
+    ).join(Vote).filter(Vote.spoilt == False).group_by(Candidate.id).all()
+
+    data = [
+        {
+            "candidate_id": r.id,
+            "candidate_name": r.name,
+            "vote_count": r.vote_count
+        }
+        for r in results
+    ]
+
+    return jsonify(data), 200
+
 
 
 if __name__ == '__main__':
