@@ -8,14 +8,14 @@ import VotePage from './pages/VotePage';
 import ResultsPage from './pages/ResultsPage';
 import ConfirmPage from './pages/ConfirmPage';
 import HelpPage from './pages/HelpPage';
-import Navbar from './pages/Navbar';
+import NavBar from './pages/NavBar';
 
 function App() {
   const [voter, setVoter] = useState(null);
 
   return (
     <Router>
-      <Navbar />
+      <NavBar />
       <div className="container">
         <Routes>
           <Route path="/" element={<HomePage />} />

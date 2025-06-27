@@ -1,8 +1,7 @@
-// src/services/api.js
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: process.env.REACT_APP_API_BASE_URL || 'http://localhost:5555',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5555',
 });
 
 export const login = ({ username, password }) =>
