@@ -7,7 +7,7 @@ fake = Faker()
 
 def seed_data():
     with app.app_context():
-        # Clear existing data
+        
         Vote.query.delete()
         Candidate.query.delete()
         Voter.query.delete()
