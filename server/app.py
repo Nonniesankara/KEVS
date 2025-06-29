@@ -81,13 +81,19 @@ def count_votes():
     results = db.session.query(
         Candidate.id,
         Candidate.name,
+        Candidate.position,
+        Candidate.party,
         func.count(Vote.id).label('vote_count')
-    ).join(Vote).filter(Vote.spoilt == False).group_by(Candidate.id).all()
+    ).outerjoin(Vote).filter(
+        (Vote.spoilt == False) | (Vote.id == None) 
+    ).group_by(Candidate.id).all()
 
     return jsonify([
         {
             "candidate_id": r.id,
             "candidate_name": r.name,
+            "position": r.position,
+            "party": r.party,
             "vote_count": r.vote_count
         }
         for r in results

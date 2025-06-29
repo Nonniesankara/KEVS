@@ -406,10 +406,26 @@
     { "name": "Brian Kiprop", "party": "Party C", "position": "MCA", "ward": "Parklands/Highridge" }
   ],
   "voters": [
-    { "username": "voter1", "password": "pass123", "polling_station": "Highridge Primary School" },
-    { "username": "voter2", "password": "pass456", "polling_station": "Parklands Arya" },
-    { "username": "voter3", "password": "pass789", "polling_station": "Kangemi Primary School" },
-    { "username": "voter4", "password": "pass321", "polling_station": "Karen C Primary" },
-    { "username": "voter5", "password": "pass654", "polling_station": "Makini School" }
-  ]
+  { "username": "voter1", "password": "pass123", "polling_station": "Highridge Primary School" },
+  { "username": "voter2", "password": "pass456", "polling_station": "Parklands Arya" },
+  { "username": "voter3", "password": "pass789", "polling_station": "Kangemi Primary School" },
+  { "username": "voter4", "password": "pass321", "polling_station": "Karen C Primary" },
+  { "username": "voter5", "password": "pass654", "polling_station": "Makini School" },
+  { "username": "voter6", "password": "pass147", "polling_station": "Kangemi Social Hall" },
+  { "username": "voter7", "password": "pass258", "polling_station": "Hardy Primary" },
+  { "username": "voter8", "password": "pass369", "polling_station": "Githurai Primary" },
+  { "username": "voter9", "password": "pass159", "polling_station": "Mwihoko Primary" },
+  { "username": "voter10", "password": "pass753", "polling_station": "Thika High School" },
+  { "username": "voter11", "password": "pass456", "polling_station": "Starehe Primary" },
+  { "username": "voter12", "password": "pass852", "polling_station": "Kamenu Primary" },
+  { "username": "voter13", "password": "pass951", "polling_station": "Joyland Academy" },
+  { "username": "voter14", "password": "pass357", "polling_station": "Bamburi Primary" },
+  { "username": "voter15", "password": "pass654", "polling_station": "Mtopanga Social Hall" },
+  { "username": "voter16", "password": "pass159", "polling_station": "Changamwe Primary" },
+  { "username": "voter17", "password": "pass951", "polling_station": "Flamingo Primary" },
+  { "username": "voter18", "password": "pass159", "polling_station": "Biashara Hall" },
+  { "username": "voter19", "password": "pass357", "polling_station": "Kapsoya Primary" },
+  { "username": "voter20", "password": "pass753", "polling_station": "Kipchimchim Hall" }
+]
+
 }
