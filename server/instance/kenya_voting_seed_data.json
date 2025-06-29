@@ -388,23 +388,670 @@
       ]
     }
   ],
+
+
   "candidates": [
-    { "name": "John Mwangi", "party": "Party A", "position": "President" },
-    { "name": "Jane Otieno", "party": "Party B", "position": "President" },
-    { "name": "Peter Njoroge", "party": "Party C", "position": "President" },
-    { "name": "Paul Waweru", "party": "Party A", "position": "Governor", "county": "Nairobi" },
-    { "name": "Grace Muthoni", "party": "Party B", "position": "Governor", "county": "Nairobi" },
-    { "name": "Michael Kibet", "party": "Party C", "position": "Governor", "county": "Nairobi" },
-    { "name": "Sarah Wambui", "party": "Party A", "position": "Senator", "county": "Kiambu" },
-    { "name": "David Kimani", "party": "Party B", "position": "Senator", "county": "Kiambu" },
-    { "name": "Mercy Chebet", "party": "Party C", "position": "Senator", "county": "Kiambu" },
-    { "name": "Alice Njeri", "party": "Party A", "position": "MP", "constituency": "Westlands" },
-    { "name": "Samuel Odhiambo", "party": "Party B", "position": "MP", "constituency": "Westlands" },
-    { "name": "Nancy Chege", "party": "Party C", "position": "MP", "constituency": "Westlands" },
-    { "name": "Felix Mutua", "party": "Party A", "position": "MCA", "ward": "Parklands/Highridge" },
-    { "name": "Lydia Atieno", "party": "Party B", "position": "MCA", "ward": "Parklands/Highridge" },
-    { "name": "Brian Kiprop", "party": "Party C", "position": "MCA", "ward": "Parklands/Highridge" }
-  ],
+  
+  { "name": "John Mwangi", "party": "Unity Party", "position": "President" },
+  { "name": "Jane Otieno", "party": "Progressive Alliance", "position": "President" },
+  { "name": "Peter Njoroge", "party": "National Front", "position": "President" },
+
+  
+  { "name": "Paul Waweru", "party": "Unity Party", "position": "Governor", "county": "Nairobi" },
+  { "name": "Grace Muthoni", "party": "Progressive Alliance", "position": "Governor", "county": "Nairobi" },
+  { "name": "Michael Kibet", "party": "National Front", "position": "Governor", "county": "Nairobi" },
+
+  { "name": "James Gikonyo", "party": "Unity Party", "position": "Governor", "county": "Kiambu" },
+  { "name": "Linet Achieng", "party": "Progressive Alliance", "position": "Governor", "county": "Kiambu" },
+  { "name": "Daniel Mutua", "party": "National Front", "position": "Governor", "county": "Kiambu" },
+
+  { "name": "Ahmed Salim", "party": "Unity Party", "position": "Governor", "county": "Mombasa" },
+  { "name": "Fatuma Juma", "party": "Progressive Alliance", "position": "Governor", "county": "Mombasa" },
+  { "name": "Hassan Mohamed", "party": "National Front", "position": "Governor", "county": "Mombasa" },
+
+  { "name": "Brian Kiprop", "party": "Unity Party", "position": "Governor", "county": "Nakuru" },
+  { "name": "Naomi Ruto", "party": "Progressive Alliance", "position": "Governor", "county": "Nakuru" },
+  { "name": "Elijah Njoroge", "party": "National Front", "position": "Governor", "county": "Nakuru" },
+
+  { "name": "George Owino", "party": "Unity Party", "position": "Governor", "county": "Kisumu" },
+  { "name": "Rose Atieno", "party": "Progressive Alliance", "position": "Governor", "county": "Kisumu" },
+  { "name": "Collins Onyango", "party": "National Front", "position": "Governor", "county": "Kisumu" },
+
+  { "name": "Victor Cheruiyot", "party": "Unity Party", "position": "Governor", "county": "Uasin Gishu" },
+  { "name": "Nancy Chelangat", "party": "Progressive Alliance", "position": "Governor", "county": "Uasin Gishu" },
+  { "name": "Kiplangat Korir", "party": "National Front", "position": "Governor", "county": "Uasin Gishu" },
+
+  { "name": "Justus Mworia", "party": "Unity Party", "position": "Governor", "county": "Meru" },
+  { "name": "Purity Karambu", "party": "Progressive Alliance", "position": "Governor", "county": "Meru" },
+  { "name": "Samson Gitonga", "party": "National Front", "position": "Governor", "county": "Meru" },
+
+  { "name": "Mutiso Mwania", "party": "Unity Party", "position": "Governor", "county": "Machakos" },
+  { "name": "Gladys Nduku", "party": "Progressive Alliance", "position": "Governor", "county": "Machakos" },
+  { "name": "Julius Ndambuki", "party": "National Front", "position": "Governor", "county": "Machakos" },
+
+  { "name": "Wesley Ruto", "party": "Unity Party", "position": "Governor", "county": "Kericho" },
+  { "name": "Nancy Cherop", "party": "Progressive Alliance", "position": "Governor", "county": "Kericho" },
+  { "name": "Philip Kipkoech", "party": "National Front", "position": "Governor", "county": "Kericho" },
+
+  
+
+
+
+  { "name": "Sarah Wambui", "party": "Unity Party", "position": "Senator", "county": "Nairobi" },
+  { "name": "David Kimani", "party": "Progressive Alliance", "position": "Senator", "county": "Nairobi" },
+  { "name": "Mercy Chebet", "party": "National Front", "position": "Senator", "county": "Nairobi" },
+
+  { "name": "Peter Maina", "party": "Unity Party", "position": "Senator", "county": "Kiambu" },
+  { "name": "Angela Nduta", "party": "Progressive Alliance", "position": "Senator", "county": "Kiambu" },
+  { "name": "Isaac Wainaina", "party": "National Front", "position": "Senator", "county": "Kiambu" },
+
+  { "name": "Halima Said", "party": "Unity Party", "position": "Senator", "county": "Mombasa" },
+  { "name": "Abdi Yusuf", "party": "Progressive Alliance", "position": "Senator", "county": "Mombasa" },
+  { "name": "Suleiman Ali", "party": "National Front", "position": "Senator", "county": "Mombasa" },
+
+  { "name": "Grace Wanjiku", "party": "Unity Party", "position": "Senator", "county": "Nakuru" },
+  { "name": "Jackson Kiplagat", "party": "Progressive Alliance", "position": "Senator", "county": "Nakuru" },
+  { "name": "Linet Mbugua", "party": "National Front", "position": "Senator", "county": "Nakuru" },
+
+  { "name": "Erick Otieno", "party": "Unity Party", "position": "Senator", "county": "Kisumu" },
+  { "name": "Maureen Achieng", "party": "Progressive Alliance", "position": "Senator", "county": "Kisumu" },
+  { "name": "Ben Ouma", "party": "National Front", "position": "Senator", "county": "Kisumu" },
+
+  { "name": "Faith Chelang'at", "party": "Unity Party", "position": "Senator", "county": "Uasin Gishu" },
+  { "name": "Samuel Kibet", "party": "Progressive Alliance", "position": "Senator", "county": "Uasin Gishu" },
+  { "name": "Laban Kiptoo", "party": "National Front", "position": "Senator", "county": "Uasin Gishu" },
+
+  { "name": "Eunice Kobia", "party": "Unity Party", "position": "Senator", "county": "Meru" },
+  { "name": "Frankline Muriuki", "party": "Progressive Alliance", "position": "Senator", "county": "Meru" },
+  { "name": "Catherine Mukiri", "party": "National Front", "position": "Senator", "county": "Meru" },
+
+  { "name": "Esther Mutheu", "party": "Unity Party", "position": "Senator", "county": "Machakos" },
+  { "name": "Charles Ndambuki", "party": "Progressive Alliance", "position": "Senator", "county": "Machakos" },
+  { "name": "Moses Mumo", "party": "National Front", "position": "Senator", "county": "Machakos" },
+
+  { "name": "Gladys Chelagat", "party": "Unity Party", "position": "Senator", "county": "Kericho" },
+  { "name": "Jonah Kipngetich", "party": "Progressive Alliance", "position": "Senator", "county": "Kericho" },
+  { "name": "Silas Ruto", "party": "National Front", "position": "Senator", "county": "Kericho" },
+
+
+  
+  { "name": "Alice Njeri", "party": "Unity Party", "position": "MP", "constituency": "Westlands" },
+  { "name": "Samuel Odhiambo", "party": "Progressive Alliance", "position": "MP", "constituency": "Westlands" },
+  { "name": "Nancy Chege", "party": "National Front", "position": "MP", "constituency": "Westlands" },
+  { "name": "Kennedy Mwangi", "party": "Unity Party", "position": "MP", "constituency": "Langata" },
+  { "name": "Esther Achieng", "party": "Progressive Alliance", "position": "MP", "constituency": "Langata" },
+  { "name": "Victor Kiptoo", "party": "National Front", "position": "MP", "constituency": "Langata" },
+
+  
+  { "name": "Peter Kamau", "party": "Unity Party", "position": "MP", "constituency": "Ruiru" },
+  { "name": "Janet Wairimu", "party": "Progressive Alliance", "position": "MP", "constituency": "Ruiru" },
+  { "name": "Stephen Ndung'u", "party": "National Front", "position": "MP", "constituency": "Ruiru" },
+  { "name": "Emily Wanjiru", "party": "Unity Party", "position": "MP", "constituency": "Thika Town" },
+  { "name": "George Wachira", "party": "Progressive Alliance", "position": "MP", "constituency": "Thika Town" },
+  { "name": "Felix Mwaura", "party": "National Front", "position": "MP", "constituency": "Thika Town" },
+
+  
+  { "name": "Ahmed Yusuf", "party": "Unity Party", "position": "MP", "constituency": "Kisauni" },
+  { "name": "Fatma Noor", "party": "Progressive Alliance", "position": "MP", "constituency": "Kisauni" },
+  { "name": "Omar Said", "party": "National Front", "position": "MP", "constituency": "Kisauni" },
+  { "name": "Juma Ali", "party": "Unity Party", "position": "MP", "constituency": "Changamwe" },
+  { "name": "Hassan Abdalla", "party": "Progressive Alliance", "position": "MP", "constituency": "Changamwe" },
+  { "name": "Rashid Salim", "party": "National Front", "position": "MP", "constituency": "Changamwe" },
+
+  
+  { "name": "Diana Chebet", "party": "Unity Party", "position": "MP", "constituency": "Nakuru Town East" },
+  { "name": "Jackson Karanja", "party": "Progressive Alliance", "position": "MP", "constituency": "Nakuru Town East" },
+  { "name": "Elijah Njuguna", "party": "National Front", "position": "MP", "constituency": "Nakuru Town East" },
+  { "name": "Lilian Chepkorir", "party": "Unity Party", "position": "MP", "constituency": "Naivasha" },
+  { "name": "Dennis Kipng'etich", "party": "Progressive Alliance", "position": "MP", "constituency": "Naivasha" },
+  { "name": "Samuel Kiprotich", "party": "National Front", "position": "MP", "constituency": "Naivasha" },
+
+  
+  { "name": "Collins Otieno", "party": "Unity Party", "position": "MP", "constituency": "Kisumu East" },
+  { "name": "Angela Achieng", "party": "Progressive Alliance", "position": "MP", "constituency": "Kisumu East" },
+  { "name": "Patrick Oduor", "party": "National Front", "position": "MP", "constituency": "Kisumu East" },
+  { "name": "Maureen Atieno", "party": "Unity Party", "position": "MP", "constituency": "Kisumu West" },
+  { "name": "Ben Ouma", "party": "Progressive Alliance", "position": "MP", "constituency": "Kisumu West" },
+  { "name": "Evans Omondi", "party": "National Front", "position": "MP", "constituency": "Kisumu West" },
+
+  
+  { "name": "Kiprono Rono", "party": "Unity Party", "position": "MP", "constituency": "Eldoret East" },
+  { "name": "Joyce Chebet", "party": "Progressive Alliance", "position": "MP", "constituency": "Eldoret East" },
+  { "name": "Paul Kipkorir", "party": "National Front", "position": "MP", "constituency": "Eldoret East" },
+  { "name": "Martin Cheruiyot", "party": "Unity Party", "position": "MP", "constituency": "Soy" },
+  { "name": "Caroline Jepchirchir", "party": "Progressive Alliance", "position": "MP", "constituency": "Soy" },
+  { "name": "Geoffrey Kipchumba", "party": "National Front", "position": "MP", "constituency": "Soy" },
+
+  
+  { "name": "David Muriuki", "party": "Unity Party", "position": "MP", "constituency": "Imenti North" },
+  { "name": "Purity Gacheri", "party": "Progressive Alliance", "position": "MP", "constituency": "Imenti North" },
+  { "name": "Justus Mwenda", "party": "National Front", "position": "MP", "constituency": "Imenti North" },
+  { "name": "Ezekiel Karani", "party": "Unity Party", "position": "MP", "constituency": "Buuri" },
+  { "name": "Nancy Nkirote", "party": "Progressive Alliance", "position": "MP", "constituency": "Buuri" },
+  { "name": "Fredrick Gituma", "party": "National Front", "position": "MP", "constituency": "Buuri" },
+
+  
+  { "name": "Patrick Mwania", "party": "Unity Party", "position": "MP", "constituency": "Kangundo" },
+  { "name": "Ann Nduku", "party": "Progressive Alliance", "position": "MP", "constituency": "Kangundo" },
+  { "name": "Jacob Mutuku", "party": "National Front", "position": "MP", "constituency": "Kangundo" },
+  { "name": "Pauline Musyoka", "party": "Unity Party", "position": "MP", "constituency": "Mwala" },
+  { "name": "Mutinda Wambua", "party": "Progressive Alliance", "position": "MP", "constituency": "Mwala" },
+  { "name": "Martin Kilonzo", "party": "National Front", "position": "MP", "constituency": "Mwala" },
+
+  
+  { "name": "Hillary Rono", "party": "Unity Party", "position": "MP", "constituency": "Belgut" },
+  { "name": "Jane Chepkorir", "party": "Progressive Alliance", "position": "MP", "constituency": "Belgut" },
+  { "name": "Daniel Kipruto", "party": "National Front", "position": "MP", "constituency": "Belgut" },
+  { "name": "Robert Kipng’etich", "party": "Unity Party", "position": "MP", "constituency": "Ainamoi" },
+  { "name": "Esther Chelangat", "party": "Progressive Alliance", "position": "MP", "constituency": "Ainamoi" },
+  { "name": "Wycliffe Kipkoech", "party": "National Front", "position": "MP", "constituency": "Ainamoi" },
+
+
+  {
+    "name": "Fredrick Kipkoech",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Parklands/Highridge",
+    "county": "Nairobi"
+  },
+  {
+    "name": "Mutinda Ndung'u",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Parklands/Highridge",
+    "county": "Nairobi"
+  },
+  {
+    "name": "Joyce Muthoni",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Kangemi",
+    "county": "Nairobi"
+  },
+  {
+    "name": "Angela Wambui",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Kangemi",
+    "county": "Nairobi"
+  },
+  {
+    "name": "Martin Otieno",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Karen",
+    "county": "Nairobi"
+  },
+  {
+    "name": "Alice Cheruiyot",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Karen",
+    "county": "Nairobi"
+  },
+  {
+    "name": "George Achieng",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Nairobi West",
+    "county": "Nairobi"
+  },
+  {
+    "name": "Stephen Mutua",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Nairobi West",
+    "county": "Nairobi"
+  },
+  {
+    "name": "Esther Chege",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Githurai",
+    "county": "Kiambu"
+  },
+  {
+    "name": "Ben Chebet",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Githurai",
+    "county": "Kiambu"
+  },
+  {
+    "name": "Felix Kamau",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Mwihoko",
+    "county": "Kiambu"
+  },
+  {
+    "name": "Jane Chege",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Mwihoko",
+    "county": "Kiambu"
+  },
+  {
+    "name": "Victor Ouma",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Township",
+    "county": "Kiambu"
+  },
+  {
+    "name": "Emily Chebet",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Township",
+    "county": "Kiambu"
+  },
+  {
+    "name": "Hillary Kiprop",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Kamenu",
+    "county": "Kiambu"
+  },
+  {
+    "name": "Fatma Kimani",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Kamenu",
+    "county": "Kiambu"
+  },
+  {
+    "name": "Hillary Oduor",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Bamburi",
+    "county": "Mombasa"
+  },
+  {
+    "name": "Sarah Wairimu",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Bamburi",
+    "county": "Mombasa"
+  },
+  {
+    "name": "Patrick Chebet",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Mtopanga",
+    "county": "Mombasa"
+  },
+  {
+    "name": "Lydia Chege",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Mtopanga",
+    "county": "Mombasa"
+  },
+  {
+    "name": "Michael Noor",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Airport",
+    "county": "Mombasa"
+  },
+  {
+    "name": "Brian Kamau",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Airport",
+    "county": "Mombasa"
+  },
+  {
+    "name": "Nancy Otieno",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Port Reitz",
+    "county": "Mombasa"
+  },
+  {
+    "name": "Ann Kiprop",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Port Reitz",
+    "county": "Mombasa"
+  },
+  {
+    "name": "David Atieno",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Flamingo",
+    "county": "Nakuru"
+  },
+  {
+    "name": "Angela Cheruiyot",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Flamingo",
+    "county": "Nakuru"
+  },
+  {
+    "name": "Martin Wambua",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Biashara",
+    "county": "Nakuru"
+  },
+  {
+    "name": "Janet Njoroge",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Biashara",
+    "county": "Nakuru"
+  },
+  {
+    "name": "Evans Njoroge",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Mai Mahiu",
+    "county": "Nakuru"
+  },
+  {
+    "name": "Grace Ouma",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Mai Mahiu",
+    "county": "Nakuru"
+  },
+  {
+    "name": "Ben Chebet",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Karagita",
+    "county": "Nakuru"
+  },
+  {
+    "name": "Joyce Rono",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Karagita",
+    "county": "Nakuru"
+  },
+  {
+    "name": "Peter Kimani",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Kajulu",
+    "county": "Kisumu"
+  },
+  {
+    "name": "Alice Chebet",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Kajulu",
+    "county": "Kisumu"
+  },
+  {
+    "name": "Victor Wairimu",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Kolwa Central",
+    "county": "Kisumu"
+  },
+  {
+    "name": "Michael Mutua",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Kolwa Central",
+    "county": "Kisumu"
+  },
+  {
+    "name": "John Chelangat",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "North West Kisumu",
+    "county": "Kisumu"
+  },
+  {
+    "name": "Fatma Kipkoech",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "North West Kisumu",
+    "county": "Kisumu"
+  },
+  {
+    "name": "Hillary Wairimu",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Central Kisumu",
+    "county": "Kisumu"
+  },
+  {
+    "name": "Janet Muthoni",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Central Kisumu",
+    "county": "Kisumu"
+  },
+  {
+    "name": "George Njeri",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Kapsoya",
+    "county": "Uasin Gishu"
+  },
+  {
+    "name": "Mutinda Odhiambo",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Kapsoya",
+    "county": "Uasin Gishu"
+  },
+  {
+    "name": "Patrick Chebet",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Kimumu",
+    "county": "Uasin Gishu"
+  },
+  {
+    "name": "Ann Kiprop",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Kimumu",
+    "county": "Uasin Gishu"
+  },
+  {
+    "name": "Brian Ouma",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Soy",
+    "county": "Uasin Gishu"
+  },
+  {
+    "name": "Peter Kamau",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Soy",
+    "county": "Uasin Gishu"
+  },
+  {
+    "name": "Stephen Njeri",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Moi's Bridge",
+    "county": "Uasin Gishu"
+  },
+  {
+    "name": "David Wairimu",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Moi's Bridge",
+    "county": "Uasin Gishu"
+  },
+  {
+    "name": "Felix Achieng",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Ntima East",
+    "county": "Meru"
+  },
+  {
+    "name": "Janet Chege",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Ntima East",
+    "county": "Meru"
+  },
+  {
+    "name": "Mutinda Chege",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Mikumbune",
+    "county": "Meru"
+  },
+  {
+    "name": "Ben Rono",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Mikumbune",
+    "county": "Meru"
+  },
+  {
+    "name": "Peter Otieno",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Timau",
+    "county": "Meru"
+  },
+  {
+    "name": "Fredrick Chebet",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Timau",
+    "county": "Meru"
+  },
+  {
+    "name": "Joyce Kipkoech",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Ruiri",
+    "county": "Meru"
+  },
+  {
+    "name": "Victor Nduku",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Ruiri",
+    "county": "Meru"
+  },
+  {
+    "name": "Angela Wambua",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Kangundo North",
+    "county": "Machakos"
+  },
+  {
+    "name": "Stephen Kiprop",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Kangundo North",
+    "county": "Machakos"
+  },
+  {
+    "name": "Fatma Chege",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Kangundo South",
+    "county": "Machakos"
+  },
+  {
+    "name": "Evans Kipkoech",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Kangundo South",
+    "county": "Machakos"
+  },
+  {
+    "name": "Alice Kamau",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Mwala East",
+    "county": "Machakos"
+  },
+  {
+    "name": "John Mutua",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Mwala East",
+    "county": "Machakos"
+  },
+  {
+    "name": "George Atieno",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Mwala West",
+    "county": "Machakos"
+  },
+  {
+    "name": "Fredrick Chebet",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Mwala West",
+    "county": "Machakos"
+  },
+  {
+    "name": "Sarah Rono",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Kabianga",
+    "county": "Kericho"
+  },
+  {
+    "name": "Mutinda Chege",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Kabianga",
+    "county": "Kericho"
+  },
+  {
+    "name": "Nancy Cheruiyot",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Waldai",
+    "county": "Kericho"
+  },
+  {
+    "name": "David Nduku",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Waldai",
+    "county": "Kericho"
+  },
+  {
+    "name": "Victor Kipkoech",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Kapsoit",
+    "county": "Kericho"
+  },
+  {
+    "name": "Angela Kiprop",
+    "party": "Progressive Alliance",
+    "position": "MCA",
+    "ward": "Kapsoit",
+    "county": "Kericho"
+  },
+  {
+    "name": "Joyce Wairimu",
+    "party": "National Front",
+    "position": "MCA",
+    "ward": "Kipchimchim",
+    "county": "Kericho"
+  },
+  {
+    "name": "Martin Chege",
+    "party": "Unity Party",
+    "position": "MCA",
+    "ward": "Kipchimchim",
+    "county": "Kericho"
+  }
+],
   "voters": [
   { "username": "voter1", "password": "pass123", "polling_station": "Highridge Primary School" },
   { "username": "voter2", "password": "pass456", "polling_station": "Parklands Arya" },

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5555',
+  baseURL: 'http://localhost:5555',
 });
 
 // ---------------- AUTH ----------------
@@ -10,37 +10,44 @@ const API = axios.create({
 export const login = ({ username, password }) =>
   API.post('/login', { username, password });
 
-// ---------------- CANDIDATES ----------------
+// ---------------- LOCATIONS ----------------
 
-// Get all candidates
-export const getCandidates = () => API.get('/candidates');
-
-// ✅ Grouped by position: President, Governor, etc.
-export const getCandidatesGrouped = () => API.get('/candidates/grouped');
-
-// ---------------- VOTING ----------------
-
-// ✅ Submit multiple votes in one request
-// Expects: { voter_id: Number, candidate_ids: [id1, id2, ...] }
-export const submitVote = (voter_id, candidate_ids) =>
-  API.post('/vote', { voter_id, candidate_ids });
-
-// Get vote counts per candidate
-export const getResults = () => API.get('/votes/count');
-
-// ---------------- LOCATION DATA ----------------
-
-// Counties
+// Get all counties
 export const getCounties = () => API.get('/counties');
 
-// Constituencies by County
+// Get constituencies by county
 export const getConstituencies = (countyId) =>
   API.get(`/constituencies/by_county/${countyId}`);
 
-// Wards by Constituency
+// Get wards by constituency
 export const getWards = (constituencyId) =>
   API.get(`/wards/by_constituency/${constituencyId}`);
 
-// Polling Stations by Ward
+// Get polling stations by ward
 export const getPollingStations = (wardId) =>
   API.get(`/pollingstations/by_ward/${wardId}`);
+
+// ---------------- CANDIDATES ----------------
+
+// Get candidates with optional filters (county, constituency, ward)
+export const getCandidates = (filters) =>
+  API.get('/candidates', { params: filters });
+
+// Get all candidates grouped by position
+export const getCandidatesGrouped = () =>
+  API.get('/candidates/grouped');
+
+// ---------------- VOTING ----------------
+
+// Submit a vote
+export const submitVote = (voterId, candidateIds) =>
+  API.post('/vote', {
+    voter_id: voterId,
+    candidate_ids: candidateIds,
+  });
+
+// ---------------- RESULTS ----------------
+
+// Get vote counts per candidate
+export const getResults = () =>
+  API.get('/votes/count');

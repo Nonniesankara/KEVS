@@ -1,20 +1,28 @@
-// src/pages/CandidateFilter.js
 import React from 'react';
 
-function CandidateFilter({ position, candidates, selectedCandidates, setSelectedCandidates }) {
+function CandidateFilter({
+  position,
+  candidates,
+  selectedCandidates,
+  setSelectedCandidates,
+}) {
   const handleChange = (e) => {
-    setSelectedCandidates(prev => ({
+    setSelectedCandidates((prev) => ({
       ...prev,
-      [position]: e.target.value
+      [position]: e.target.value,
     }));
   };
 
   return (
     <div className="form-group">
       <label>{position}</label>
-      <select value={selectedCandidates[position] || ''} onChange={handleChange} required>
+      <select
+        value={selectedCandidates[position] || ''}
+        onChange={handleChange}
+        required
+      >
         <option value="">-- Select a {position} --</option>
-        {candidates.map(c => (
+        {candidates.map((c) => (
           <option key={c.id} value={c.id}>
             {c.name} ({c.party})
           </option>

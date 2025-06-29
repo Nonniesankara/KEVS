@@ -5,7 +5,7 @@ import {
   getConstituencies,
   getWards,
   getPollingStations,
-  getCandidatesGrouped,
+  getCandidates,
   submitVote,
 } from '../services/api';
 import CandidateFilter from './CandidateFilter';
@@ -43,6 +43,12 @@ function VotePage({ voter }) {
       setStations([]);
       setCandidatesByPosition({});
       setSelectedCandidates({});
+    } else {
+      setConstituencies([]);
+      setWards([]);
+      setStations([]);
+      setCandidatesByPosition({});
+      setSelectedCandidates({});
     }
   }, [selectedCounty]);
 
@@ -53,6 +59,11 @@ function VotePage({ voter }) {
       setStations([]);
       setCandidatesByPosition({});
       setSelectedCandidates({});
+    } else {
+      setWards([]);
+      setStations([]);
+      setCandidatesByPosition({});
+      setSelectedCandidates({});
     }
   }, [selectedConstituency]);
 
@@ -60,19 +71,46 @@ function VotePage({ voter }) {
     if (selectedWard) {
       getPollingStations(selectedWard).then(res => setStations(res.data));
       setSelectedStation('');
-      setCandidatesByPosition({});
-      setSelectedCandidates({});
+    } else {
+      setStations([]);
+      setSelectedStation('');
     }
   }, [selectedWard]);
 
   useEffect(() => {
-    if (selectedStation) {
-      getCandidatesGrouped().then(res => {
-        setCandidatesByPosition(res.data);
+    if (selectedCounty || selectedConstituency || selectedWard) {
+      const positions = ['President', 'Governor', 'Senator', 'MP', 'MCA'];
+      Promise.all(
+        positions.map(position => {
+          const params = { position };
+
+          if (position === 'Governor' || position === 'Senator') {
+            if (selectedCounty) params.countyId = selectedCounty;
+          } else if (position === 'MP') {
+            if (selectedConstituency) params.constituencyId = selectedConstituency;
+          } else if (position === 'MCA') {
+            if (selectedWard) params.wardId = selectedWard;
+          }
+          return getCandidates(params).then(res => ({
+            position,
+            candidates: res.data,
+          }));
+        })
+      ).then(results => {
+        const grouped = {};
+        results.forEach(({ position, candidates }) => {
+          if (candidates.length > 0) {
+            grouped[position] = candidates;
+          }
+        });
+        setCandidatesByPosition(grouped);
         setSelectedCandidates({});
       });
+    } else {
+      setCandidatesByPosition({});
+      setSelectedCandidates({});
     }
-  }, [selectedStation]);
+  }, [selectedCounty, selectedConstituency, selectedWard]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -84,7 +122,7 @@ function VotePage({ voter }) {
         state: {
           selectedCandidates,
           pollingStation: stations.find(s => s.id === parseInt(selectedStation)),
-          allCandidates: Object.values(candidatesByPosition).flat()
+          allCandidates: Object.values(candidatesByPosition).flat(),
         },
       });
     } catch (err) {
@@ -97,21 +135,24 @@ function VotePage({ voter }) {
     <div className="vote-card animate-fade-in">
       <h2>Cast Your Vote</h2>
 
-      {/* Location Dropdowns */}
       <div className="form-group animate-slide-in">
         <label>Select County</label>
-        <select value={selectedCounty} onChange={(e) => setSelectedCounty(e.target.value)}>
+        <select value={selectedCounty} onChange={e => setSelectedCounty(e.target.value)}>
           <option value="">-- Select County --</option>
-          {counties.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+          {counties.map(c => (
+            <option key={c.id} value={c.id}>{c.name}</option>
+          ))}
         </select>
       </div>
 
       {constituencies.length > 0 && (
         <div className="form-group animate-slide-in">
           <label>Select Constituency</label>
-          <select value={selectedConstituency} onChange={(e) => setSelectedConstituency(e.target.value)}>
+          <select value={selectedConstituency} onChange={e => setSelectedConstituency(e.target.value)}>
             <option value="">-- Select Constituency --</option>
-            {constituencies.map(c => <option key={c.id} value={c.id}>{c.name}</option>)}
+            {constituencies.map(c => (
+              <option key={c.id} value={c.id}>{c.name}</option>
+            ))}
           </select>
         </div>
       )}
@@ -119,9 +160,11 @@ function VotePage({ voter }) {
       {wards.length > 0 && (
         <div className="form-group animate-slide-in">
           <label>Select Ward</label>
-          <select value={selectedWard} onChange={(e) => setSelectedWard(e.target.value)}>
+          <select value={selectedWard} onChange={e => setSelectedWard(e.target.value)}>
             <option value="">-- Select Ward --</option>
-            {wards.map(w => <option key={w.id} value={w.id}>{w.name}</option>)}
+            {wards.map(w => (
+              <option key={w.id} value={w.id}>{w.name}</option>
+            ))}
           </select>
         </div>
       )}
@@ -129,15 +172,16 @@ function VotePage({ voter }) {
       {stations.length > 0 && (
         <div className="form-group animate-slide-in">
           <label>Select Polling Station</label>
-          <select value={selectedStation} onChange={(e) => setSelectedStation(e.target.value)}>
+          <select value={selectedStation} onChange={e => setSelectedStation(e.target.value)}>
             <option value="">-- Select Polling Station --</option>
-            {stations.map(s => <option key={s.id} value={s.id}>{s.name}</option>)}
+            {stations.map(s => (
+              <option key={s.id} value={s.id}>{s.name}</option>
+            ))}
           </select>
         </div>
       )}
 
-      {/* Candidate Selection */}
-      {selectedStation && Object.keys(candidatesByPosition).length > 0 && (
+      {Object.keys(candidatesByPosition).length > 0 && (
         <div className="animate-slide-in">
           <h3>Select One Candidate per Position</h3>
           {Object.entries(candidatesByPosition).map(([position, candidateList]) => (

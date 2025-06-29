@@ -25,8 +25,42 @@ CORS(app)
 
 @app.route('/candidates', methods=['GET'])
 def get_candidates():
-    candidates = Candidate.query.all()
-    return jsonify([candidate.to_dict() for candidate in candidates])
+    position = request.args.get('position')
+    county_id = request.args.get('countyId', type=int)
+    constituency_id = request.args.get('constituencyId', type=int)
+    ward_id = request.args.get('wardId', type=int)
+
+    query = Candidate.query
+
+    if position:
+        query = query.filter(Candidate.position == position)
+
+    if position:
+        pos = position.lower()
+        if pos == 'president':
+            # president not filtered
+            pass
+        elif pos in ['governor', 'senator']:
+            if county_id:
+                query = query.filter(Candidate.county_id == county_id)
+        elif pos == 'mp':
+            if constituency_id:
+                query = query.filter(Candidate.constituency_id == constituency_id)
+        elif pos == 'mca':
+            if ward_id:
+                query = query.filter(Candidate.ward_id == ward_id)
+    else:
+        # if no specific position, fallback location filtering
+        if ward_id:
+            query = query.filter(Candidate.ward_id == ward_id)
+        elif constituency_id:
+            query = query.filter(Candidate.constituency_id == constituency_id)
+        elif county_id:
+            query = query.filter(Candidate.county_id == county_id)
+
+    candidates = query.all()
+    return jsonify([c.to_dict() for c in candidates]), 200
+
 
 @app.route('/candidates/grouped', methods=['GET'])
 def get_candidates_grouped():
@@ -35,11 +69,6 @@ def get_candidates_grouped():
     for c in candidates:
         grouped[c.position].append(c.to_dict())
     return jsonify(grouped), 200
-
-@app.route('/constituencies', methods=['GET'])
-def get_constituencies():
-    constituencies = Constituency.query.all()
-    return jsonify([c.to_dict() for c in constituencies])
 
 @app.route('/constituencies/by_county/<int:county_id>', methods=['GET'])
 def get_constituencies_by_county(county_id):
@@ -51,30 +80,15 @@ def get_counties():
     counties = County.query.all()
     return jsonify([c.to_dict() for c in counties])
 
-@app.route('/wards', methods=['GET'])
-def get_wards():
-    wards = Ward.query.all()
-    return jsonify([w.to_dict() for w in wards])
-
 @app.route('/wards/by_constituency/<int:constituency_id>', methods=['GET'])
 def get_wards_by_constituency(constituency_id):
     wards = Ward.query.filter_by(constituency_id=constituency_id).all()
     return jsonify([w.to_dict() for w in wards]), 200
 
-@app.route('/pollingstations', methods=['GET'])
-def get_polling_stations():
-    stations = PollingStation.query.all()
-    return jsonify([s.to_dict() for s in stations])
-
 @app.route('/pollingstations/by_ward/<int:ward_id>', methods=['GET'])
 def get_pollingstations_by_ward(ward_id):
     stations = PollingStation.query.filter_by(ward_id=ward_id).all()
     return jsonify([s.to_dict() for s in stations]), 200
-
-@app.route('/votes', methods=['GET'])
-def get_votes():
-    votes = Vote.query.all()
-    return jsonify([v.to_dict() for v in votes])
 
 @app.route('/votes/count', methods=['GET'])
 def count_votes():
@@ -85,7 +99,7 @@ def count_votes():
         Candidate.party,
         func.count(Vote.id).label('vote_count')
     ).outerjoin(Vote).filter(
-        (Vote.spoilt == False) | (Vote.id == None) 
+        (Vote.spoilt == False) | (Vote.id == None)
     ).group_by(Candidate.id).all()
 
     return jsonify([
@@ -99,25 +113,11 @@ def count_votes():
         for r in results
     ])
 
-@app.route('/voters', methods=['GET'])
-def get_voters():
-    voters = Voter.query.all()
-    return jsonify([v.to_dict() for v in voters]), 200
-
-# ---------------- PATCH & POST Routes ----------------
-
-@app.route('/votes/<int:id>/spoil', methods=['PATCH'])
-def spoil_vote(id):
-    vote = Vote.query.get_or_404(id)
-    vote.spoilt = True
-    db.session.commit()
-    return jsonify(vote.to_dict()), 200
-
 @app.route('/vote', methods=['POST'])
 def submit_vote():
     data = request.get_json()
     voter_id = data.get('voter_id')
-    candidate_ids = data.get('candidate_ids')  # Expecting a list
+    candidate_ids = data.get('candidate_ids')
 
     if not voter_id or not candidate_ids or not isinstance(candidate_ids, list):
         return jsonify({"error": "voter_id and candidate_ids (list) are required"}), 400
@@ -140,8 +140,6 @@ def submit_vote():
 
     return jsonify({"message": "All votes submitted successfully"}), 201
 
-# ---------------- LOGIN Route ----------------
-
 @app.route('/login', methods=['POST'])
 def login():
     data = request.get_json()
@@ -162,7 +160,6 @@ def login():
     else:
         return jsonify({"error": "Invalid username or password"}), 401
 
-# ---------------- Run Server ----------------
 
 if __name__ == '__main__':
     app.run(port=5555)
