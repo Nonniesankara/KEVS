@@ -9,6 +9,7 @@ import ResultsPage from './pages/ResultsPage';
 import ConfirmPage from './pages/ConfirmPage';
 import HelpPage from './pages/HelpPage';
 import NavBar from './pages/NavBar';
+import AboutPage from './pages/AboutPage';
 
 function App() {
   const [voter, setVoter] = useState(null);
@@ -25,6 +26,7 @@ function App() {
           <Route path="/results" element={<ResultsPage />} />
           <Route path="/help" element={<HelpPage />} />
           <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/about" element={<AboutPage/>}/>
         </Routes>
       </div>
     </Router>

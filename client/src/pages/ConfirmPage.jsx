@@ -37,7 +37,6 @@ function ConfirmPage() {
         <div style={{ marginTop: '1rem' }}>
           <h3>Polling Station Info:</h3>
           <p><strong>Name:</strong> {pollingStation.name}</p>
-          <p><strong>Ward:</strong> {pollingStation.ward}</p>
         </div>
       )}
 
