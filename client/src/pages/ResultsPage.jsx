@@ -10,28 +10,30 @@ function ResultsPage() {
   }, []);
 
   return (
-    <div>
-      <h2>Election Results</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Candidate</th>
-            <th>Position</th>
-            <th>Party</th>
-            <th>Votes</th>
-          </tr>
-        </thead>
-        <tbody>
-          {results.map(r => (
-            <tr key={r.candidate_id}>
-              <td>{r.candidate_name}</td>
-              <td>{r.position}</td>
-              <td>{r.party}</td>
-              <td>{r.vote_count}</td>
+    <div className="container animate-fade-in">
+      <h2 style={{ textAlign: 'center', marginBottom: '1rem' }}>Election Results</h2>
+      <div className="results-card">
+        <table className="results-table">
+          <thead>
+            <tr>
+              <th>Candidate</th>
+              <th>Position</th>
+              <th>Party</th>
+              <th>Votes</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {results.map(r => (
+              <tr key={r.candidate_id}>
+                <td>{r.candidate_name}</td>
+                <td>{r.position}</td>
+                <td>{r.party}</td>
+                <td><strong>{r.vote_count}</strong></td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

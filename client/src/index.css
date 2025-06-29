@@ -1,41 +1,231 @@
-/* src/index.css */
-
+/* General Reset & Base Styles */
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(
+    to bottom right,
+    #ffffff,
+    #f4f4f4
+  );
+  transition: background 0.3s, color 0.3s;
+  color: #333;
 }
 
+body.dark {
+  background: linear-gradient(
+    to bottom right,
+    #1b1b1b,
+    #2a2a2a
+  );
+  color: #f0f0f0;
+}
+
+/* Layout Utility */
 .container {
+  max-width: 600px;
+  margin: 3rem auto;
   padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background 0.3s;
 }
 
+body.dark .container {
+  background-color: rgba(30, 30, 30, 0.95);
+}
+
+/* Vote Page Card */
+.vote-card {
+  background: white;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+body.dark .vote-card {
+  background-color: #222;
+  color: #f0f0f0;
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group select {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: white;
+}
+
+body.dark .form-group select {
+  background-color: #333;
+  color: #f0f0f0;
+  border-color: #555;
+}
+
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Buttons */
 .btn {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  background: #007bff;
+  padding: 0.6rem 1.2rem;
+  background-color: #006400;
   color: white;
-  text-decoration: none;
+  border: none;
   border-radius: 4px;
-  margin-right: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
 .btn:hover {
-  background: #0056b3;
+  background-color: #004d00;
 }
 
-table {
+.btn:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+/* Login Form */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.login-form input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border 0.3s, background 0.3s;
+}
+
+body.dark .login-form input {
+  background-color: #333;
+  color: #f0f0f0;
+  border-color: #555;
+}
+
+.login-form input:focus {
+  border-color: #006400;
+  outline: none;
+}
+
+.error-text {
+  color: #cc0000;
+  font-size: 0.95rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
+}
+
+/* Navbar */
+nav {
+  background: #006400;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: white;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ffcc00;
+}
+
+nav img {
+  height: 32px;
+  margin-right: 0.5rem;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .container,
+  .vote-card {
+    margin: 1rem;
+    padding: 1rem;
+  }
+}
+/* === Results Page Styles === */
+.results-card {
+  background: white;
+  border-radius: 10px;
+  padding: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+}
+
+body.dark .results-card {
+  background: #2a2a2a;
+}
+
+.results-table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem;
 }
 
-table th,
-table td {
-  border: 1px solid #ddd;
-  padding: 0.5rem;
-}
-
-table th {
-  background: #f4f4f4;
+.results-table th, .results-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid #ddd;
   text-align: left;
+}
+
+.results-table th {
+  background-color: #006400;
+  color: white;
+}
+
+body.dark .results-table th {
+  background-color: #004d00;
+}
+
+body.dark .results-table td {
+  color: #f0f0f0;
 }

@@ -14,9 +14,7 @@ function NavBar() {
         <Link to="/results" className="nav-link">Results</Link>
         <Link to="/help" className="nav-link">Help</Link>
       </div>
-      <div className="navbar-right">
-        <button className="btn">Register</button>
-      </div>
+      
     </nav>
   );
 }

@@ -1,0 +1,415 @@
+{
+  "counties": [
+    {
+      "name": "Nairobi",
+      "constituencies": [
+        {
+          "name": "Westlands",
+          "wards": [
+            {
+              "name": "Parklands/Highridge",
+              "polling_stations": [
+                { "name": "Highridge Primary School" },
+                { "name": "Parklands Arya" }
+              ]
+            },
+            {
+              "name": "Kangemi",
+              "polling_stations": [
+                { "name": "Kangemi Primary School" },
+                { "name": "Kangemi Social Hall" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Langata",
+          "wards": [
+            {
+              "name": "Karen",
+              "polling_stations": [
+                { "name": "Karen C Primary" },
+                { "name": "Hardy Primary" }
+              ]
+            },
+            {
+              "name": "Nairobi West",
+              "polling_stations": [
+                { "name": "Makini School" },
+                { "name": "Railways Club" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kiambu",
+      "constituencies": [
+        {
+          "name": "Ruiru",
+          "wards": [
+            {
+              "name": "Githurai",
+              "polling_stations": [
+                { "name": "Githurai Primary" },
+                { "name": "St. Martin Academy" }
+              ]
+            },
+            {
+              "name": "Mwihoko",
+              "polling_stations": [
+                { "name": "Mwihoko Primary" },
+                { "name": "Mwihoko Secondary" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Thika Town",
+          "wards": [
+            {
+              "name": "Township",
+              "polling_stations": [
+                { "name": "Thika High School" },
+                { "name": "Starehe Primary" }
+              ]
+            },
+            {
+              "name": "Kamenu",
+              "polling_stations": [
+                { "name": "Kamenu Primary" },
+                { "name": "Joyland Academy" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Mombasa",
+      "constituencies": [
+        {
+          "name": "Kisauni",
+          "wards": [
+            {
+              "name": "Bamburi",
+              "polling_stations": [
+                { "name": "Bamburi Primary" },
+                { "name": "Bamburi Secondary" }
+              ]
+            },
+            {
+              "name": "Mtopanga",
+              "polling_stations": [
+                { "name": "Mtopanga Primary" },
+                { "name": "Mtopanga Social Hall" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Changamwe",
+          "wards": [
+            {
+              "name": "Airport",
+              "polling_stations": [
+                { "name": "Changamwe Primary" },
+                { "name": "Changamwe Social Hall" }
+              ]
+            },
+            {
+              "name": "Port Reitz",
+              "polling_stations": [
+                { "name": "Port Reitz Primary" },
+                { "name": "Port Reitz Secondary" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Nakuru",
+      "constituencies": [
+        {
+          "name": "Nakuru Town East",
+          "wards": [
+            {
+              "name": "Flamingo",
+              "polling_stations": [
+                { "name": "Flamingo Primary" },
+                { "name": "Nyayo Gardens" }
+              ]
+            },
+            {
+              "name": "Biashara",
+              "polling_stations": [
+                { "name": "Biashara Primary" },
+                { "name": "Biashara Hall" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Naivasha",
+          "wards": [
+            {
+              "name": "Mai Mahiu",
+              "polling_stations": [
+                { "name": "Mai Mahiu Primary" },
+                { "name": "Mai Mahiu Secondary" }
+              ]
+            },
+            {
+              "name": "Karagita",
+              "polling_stations": [
+                { "name": "Karagita Primary" },
+                { "name": "Karagita Hall" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kisumu",
+      "constituencies": [
+        {
+          "name": "Kisumu East",
+          "wards": [
+            {
+              "name": "Kajulu",
+              "polling_stations": [
+                { "name": "Kajulu Primary" },
+                { "name": "Kajulu Secondary" }
+              ]
+            },
+            {
+              "name": "Kolwa Central",
+              "polling_stations": [
+                { "name": "Kolwa Primary" },
+                { "name": "Kolwa Hall" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Kisumu West",
+          "wards": [
+            {
+              "name": "North West Kisumu",
+              "polling_stations": [
+                { "name": "North West Primary" },
+                { "name": "North West Hall" }
+              ]
+            },
+            {
+              "name": "Central Kisumu",
+              "polling_stations": [
+                { "name": "Central Primary" },
+                { "name": "Central Hall" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Uasin Gishu",
+      "constituencies": [
+        {
+          "name": "Eldoret East",
+          "wards": [
+            {
+              "name": "Kapsoya",
+              "polling_stations": [
+                { "name": "Kapsoya Primary" },
+                { "name": "Kapsoya Hall" }
+              ]
+            },
+            {
+              "name": "Kimumu",
+              "polling_stations": [
+                { "name": "Kimumu Primary" },
+                { "name": "Kimumu Secondary" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Soy",
+          "wards": [
+            {
+              "name": "Soy",
+              "polling_stations": [
+                { "name": "Soy Primary" },
+                { "name": "Soy Hall" }
+              ]
+            },
+            {
+              "name": "Moi's Bridge",
+              "polling_stations": [
+                { "name": "Moi's Bridge Primary" },
+                { "name": "Moi's Bridge Hall" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Meru",
+      "constituencies": [
+        {
+          "name": "Imenti North",
+          "wards": [
+            {
+              "name": "Ntima East",
+              "polling_stations": [
+                { "name": "Ntima Primary" },
+                { "name": "Ntima Hall" }
+              ]
+            },
+            {
+              "name": "Mikumbune",
+              "polling_stations": [
+                { "name": "Mikumbune Primary" },
+                { "name": "Mikumbune Secondary" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Buuri",
+          "wards": [
+            {
+              "name": "Timau",
+              "polling_stations": [
+                { "name": "Timau Primary" },
+                { "name": "Timau Hall" }
+              ]
+            },
+            {
+              "name": "Ruiri",
+              "polling_stations": [
+                { "name": "Ruiri Primary" },
+                { "name": "Ruiri Secondary" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Machakos",
+      "constituencies": [
+        {
+          "name": "Kangundo",
+          "wards": [
+            {
+              "name": "Kangundo North",
+              "polling_stations": [
+                { "name": "Kangundo Primary" },
+                { "name": "Kangundo Hall" }
+              ]
+            },
+            {
+              "name": "Kangundo South",
+              "polling_stations": [
+                { "name": "Kangundo South Primary" },
+                { "name": "Kangundo South Hall" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Mwala",
+          "wards": [
+            {
+              "name": "Mwala East",
+              "polling_stations": [
+                { "name": "Mwala East Primary" },
+                { "name": "Mwala East Hall" }
+              ]
+            },
+            {
+              "name": "Mwala West",
+              "polling_stations": [
+                { "name": "Mwala West Primary" },
+                { "name": "Mwala West Hall" }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Kericho",
+      "constituencies": [
+        {
+          "name": "Belgut",
+          "wards": [
+            {
+              "name": "Kabianga",
+              "polling_stations": [
+                { "name": "Kabianga Primary" },
+                { "name": "Kabianga Hall" }
+              ]
+            },
+            {
+              "name": "Waldai",
+              "polling_stations": [
+                { "name": "Waldai Primary" },
+                { "name": "Waldai Hall" }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "Ainamoi",
+          "wards": [
+            {
+              "name": "Kapsoit",
+              "polling_stations": [
+                { "name": "Kapsoit Primary" },
+                { "name": "Kapsoit Hall" }
+              ]
+            },
+            {
+              "name": "Kipchimchim",
+              "polling_stations": [
+                { "name": "Kipchimchim Primary" },
+                { "name": "Kipchimchim Hall" }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "candidates": [
+    { "name": "John Mwangi", "party": "Party A", "position": "President" },
+    { "name": "Jane Otieno", "party": "Party B", "position": "President" },
+    { "name": "Peter Njoroge", "party": "Party C", "position": "President" },
+    { "name": "Paul Waweru", "party": "Party A", "position": "Governor", "county": "Nairobi" },
+    { "name": "Grace Muthoni", "party": "Party B", "position": "Governor", "county": "Nairobi" },
+    { "name": "Michael Kibet", "party": "Party C", "position": "Governor", "county": "Nairobi" },
+    { "name": "Sarah Wambui", "party": "Party A", "position": "Senator", "county": "Kiambu" },
+    { "name": "David Kimani", "party": "Party B", "position": "Senator", "county": "Kiambu" },
+    { "name": "Mercy Chebet", "party": "Party C", "position": "Senator", "county": "Kiambu" },
+    { "name": "Alice Njeri", "party": "Party A", "position": "MP", "constituency": "Westlands" },
+    { "name": "Samuel Odhiambo", "party": "Party B", "position": "MP", "constituency": "Westlands" },
+    { "name": "Nancy Chege", "party": "Party C", "position": "MP", "constituency": "Westlands" },
+    { "name": "Felix Mutua", "party": "Party A", "position": "MCA", "ward": "Parklands/Highridge" },
+    { "name": "Lydia Atieno", "party": "Party B", "position": "MCA", "ward": "Parklands/Highridge" },
+    { "name": "Brian Kiprop", "party": "Party C", "position": "MCA", "ward": "Parklands/Highridge" }
+  ],
+  "voters": [
+    { "username": "voter1", "password": "pass123", "polling_station": "Highridge Primary School" },
+    { "username": "voter2", "password": "pass456", "polling_station": "Parklands Arya" },
+    { "username": "voter3", "password": "pass789", "polling_station": "Kangemi Primary School" },
+    { "username": "voter4", "password": "pass321", "polling_station": "Karen C Primary" },
+    { "username": "voter5", "password": "pass654", "polling_station": "Makini School" }
+  ]
+}

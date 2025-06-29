@@ -12,16 +12,19 @@ function LoginPage({ setVoter }) {
   const [error, setError] = useState('');
   const navigate = useNavigate();
 
+  // Sync dark mode with localStorage
   useEffect(() => {
     document.body.className = darkMode ? 'dark' : '';
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
   }, [darkMode]);
 
+  // Load dark mode preference
   useEffect(() => {
     const savedMode = JSON.parse(localStorage.getItem('darkMode'));
     if (savedMode) setDarkMode(true);
   }, []);
 
+  // Handle login form submit
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -32,7 +35,7 @@ function LoginPage({ setVoter }) {
       setVoter({ id: voter_id, has_voted });
       navigate('/vote');
     } catch (err) {
-      setError(err.response?.data?.error || 'Login failed');
+      setError(err.response?.data?.error || 'Login failed. Please try again.');
     } finally {
       setLoading(false);
     }

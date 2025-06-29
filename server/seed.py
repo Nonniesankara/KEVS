@@ -1,96 +1,105 @@
-from app import app, db
-from models import County, Constituency, Ward, PollingStation, Voter, Candidate, Vote
-from faker import Faker
-import random
+from app import app
+from models import db, County, Constituency, Ward, PollingStation, Voter, Candidate, Vote
+import json
 
-fake = Faker()
+with app.app_context():
+    print("Clearing old data...")
+    Vote.query.delete()
+    Candidate.query.delete()
+    Voter.query.delete()
+    PollingStation.query.delete()
+    Ward.query.delete()
+    Constituency.query.delete()
+    County.query.delete()
 
-def seed_data():
-    with app.app_context():
-        
-        Vote.query.delete()
-        Candidate.query.delete()
-        Voter.query.delete()
-        PollingStation.query.delete()
-        Ward.query.delete()
-        Constituency.query.delete()
-        County.query.delete()
+    print("Loading seed data...")
+    with open('instance/kenya_voting_seed_data.json') as f:
+        data = json.load(f)
 
-        db.session.commit()
+    print("Seeding counties, constituencies, wards, and polling stations...")
+    for c in data['counties']:
+        county = County(name=c['name'])
+        db.session.add(county)
 
-        # --- Counties ---
-        counties = []
-        for _ in range(10):
-            county = County(name=fake.city())
-            db.session.add(county)
-            counties.append(county)
-
-        db.session.commit()
-
-        # --- Constituencies ---
-        constituencies = []
-        for _ in range(10):
-            county = random.choice(counties)
-            constituency = Constituency(name=fake.city_suffix(), county=county)
+        for con in c.get('constituencies', []):
+            constituency = Constituency(name=con['name'], county=county)
             db.session.add(constituency)
-            constituencies.append(constituency)
 
-        db.session.commit()
+            for w in con.get('wards', []):
+                ward = Ward(name=w['name'], constituency=constituency)
+                db.session.add(ward)
 
-        # ---Wards ---
-        wards = []
-        for _ in range(10):
-            constituency = random.choice(constituencies)
-            ward = Ward(name=fake.street_name(), constituency=constituency)
-            db.session.add(ward)
-            wards.append(ward)
+                for ps in w.get('polling_stations', []):
+                    station = PollingStation(name=ps['name'], ward=ward)
+                    db.session.add(station)
 
-        db.session.commit()
+    db.session.commit()
+    print("✅ Done seeding counties, constituencies, wards, and polling stations.")
 
-        # ---Polling Stations ---
-        stations = []
-        for _ in range(10):
-            ward = random.choice(wards)
-            station = PollingStation(name=fake.company(), ward=ward)
-            db.session.add(station)
-            stations.append(station)
+    print("Seeding candidates...")
+    for cand in data['candidates']:
+        name = cand['name']
+        party = cand['party']
+        position = cand['position']
 
-        db.session.commit()
+        # Optional location
+        ward = cand.get('ward')
+        constituency = cand.get('constituency')
+        county = cand.get('county')
 
-        # ---Voters ---
-        voters = []
-        for _ in range(10):
-            station = random.choice(stations)
-            voter = Voter(username=fake.unique.user_name(), polling_station=station)
-            db.session.add(voter)
-            voters.append(voter)
+        candidate = Candidate(
+            name=name,
+            party=party,
+            position=position
+        )
 
-        db.session.commit()
+        if ward:
+            w = Ward.query.filter_by(name=ward).first()
+            if w:
+                candidate.ward_id = w.id
+            else:
+                print(f"⚠️ Ward '{ward}' not found for candidate {name}")
+        elif constituency:
+            con = Constituency.query.filter_by(name=constituency).first()
+            if con:
+                candidate.constituency_id = con.id
+            else:
+                print(f"⚠️ Constituency '{constituency}' not found for candidate {name}")
+        elif county:
+            co = County.query.filter_by(name=county).first()
+            if co:
+                candidate.county_id = co.id
+            else:
+                print(f"⚠️ County '{county}' not found for candidate {name}")
 
-        # ---Candidates ---
-        candidates = []
-        for _ in range(10):
-            ward = random.choice(wards)
-            candidate = Candidate(
-                name=fake.name(),
-                party=fake.company_suffix(),
-                position=random.choice(["MCA", "MP", "Senator"]),
-                ward_id=ward.id
-            )
-            db.session.add(candidate)
-            candidates.append(candidate)
+        db.session.add(candidate)
 
-        db.session.commit()
+    db.session.commit()
+    print("✅ Done seeding candidates.")
 
-        # ---Votes ---
-        for _ in range(10):
-            voter = random.choice(voters)
-            candidate = random.choice(candidates)
-            vote = Vote(voter=voter, candidate=candidate)
-            db.session.add(vote)
+    print("Seeding voters...")
+    voters_data = data.get("voters", [])
+    print(f"Found {len(voters_data)} voters in JSON.")
 
-        db.session.commit()
-        print("Seeding complete!")
+    for v in voters_data:
+        username = v["username"]
+        password = v["password"]
+        ps_name = v.get("polling_station")
 
-if __name__ == '__main__':
-    seed_data()
+        if ps_name:
+            polling_station = PollingStation.query.filter_by(name=ps_name).first()
+            if polling_station:
+                voter = Voter(
+                    username=username,
+                    password=password,
+                    polling_station_id=polling_station.id
+                )
+                db.session.add(voter)
+                print(f"✅ Added voter {username} assigned to polling station '{ps_name}'")
+            else:
+                print(f"⚠️ Polling station '{ps_name}' not found for voter '{username}'. Skipping this voter.")
+        else:
+            print(f"⚠️ No polling station provided for voter '{username}'. Skipping this voter.")
+
+    db.session.commit()
+    print("✅ Done seeding voters.")
